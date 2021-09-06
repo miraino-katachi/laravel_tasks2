@@ -28,4 +28,11 @@ class Task extends Model
     //     'expiration_date',
     //     'completion_date',
     // ];
+
+    /** @var array Datetime型として扱うカラム */
+    protected $dates = [
+        'registration_date',
+        'expiration_date',
+        'completion_date',
+    ];
 }

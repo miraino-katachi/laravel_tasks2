@@ -23,13 +23,13 @@
     @if (!is_null($task->completion_date ))
     complete
     @elseif ($task->expiration_date < date('Y-m-d'))
-    bg-danger
+    alert alert-danger
     @endif
     ">
-        <td>{{ $task->registration_date }}</td>
+        <td>{{ $task->registration_date->format('Y年m月d日') }}</td>
         <td>{{ $task->title }}</td>
-        <td>{{ $task->expiration_date }}</td>
-        <td>{{ $task->completion_date }}</td>
+        <td>{{ $task->expiration_date->format('Y年m月d日') }}</td>
+        <td>{{ !is_null($task->completion_date) ? $task->completion_date->format('Y年m月d日') : '' }}</td>
         <td>
             <form action="{{ route('tasks.destroy', $task) }}" method="post" class="form-inline">
                 @method('DELETE')

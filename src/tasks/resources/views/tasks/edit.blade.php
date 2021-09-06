@@ -26,7 +26,7 @@
         <label for="expiration_date">期限日</label>
         <input type="date" name="expiration_date" id="expiration_date"
             class="form-control @error('expiration_date') is-invalid @enderror "
-            value="{{ old('expiration_date',$task->expiration_date) }}">
+            value="{{ old('expiration_date', $task->expiration_date->format('Y-m-d')) }}">
         @error('expiration_date')
         <div id="validateExpirationDate" class="invalid-feedback">
             {{ $message }}
@@ -37,7 +37,7 @@
         <label for="completion_date">完了日</label>
         <input type="date" name="completion_date" id="completion_date"
             class="form-control @error('completion_date') is-invalid @enderror "
-            value="{{ old('completion_date', $task->completion_date) }}">
+            value="{{ old('completion_date', !is_null($task->completion_date) ? $task->completion_date->format('Y-m-d') : '') }}">
         @error('completion_date')
         <div id="validateCompletionDate" class="invalid-feedback">
             {{ $message }}

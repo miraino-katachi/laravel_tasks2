@@ -6,7 +6,7 @@
 <table class="table">
     <tr>
         <th>登録日</th>
-        <td>{{ $task->registration_date }}</td>
+        <td>{{ $task->registration_date->format('Y年m月d日') }}</td>
     </tr>
     <tr>
         <th>タイトル</th>
@@ -14,11 +14,11 @@
     </tr>
     <tr>
         <th>期限日</th>
-        <td>{{ $task->expiration_date }}</td>
+        <td>{{ $task->expiration_date->format('Y年m月d日') }}</td>
     </tr>
     <tr>
         <th>完了日</th>
-        <td>{{ $task->completion_date }}</td>
+        <td>{{ $task->completion_date != '' ? $task->completion_date->format('Y年m月d日') : '' }}</td>
     </tr>
     <tr>
         <th>説明</th>
