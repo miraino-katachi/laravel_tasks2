@@ -104,20 +104,4 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('tasks.index');
     }
-
-    /**
-     * ログインユーザーIDとタスクのユーザーIDが異なるときにHttpExceptionをスローする
-     *
-     * @param Task $task
-     * @param integer $status
-     * @return void
-     */
-    protected function checkUserID(Task $task, int $status = 404)
-    {
-        // ログインユーザーIDとタスクのユーザーIDが異なるとき
-        if (Auth::user()->id != $task->user_id) {
-            // HTTPレスポンスステータスコードを返却
-            abort($status);
-        }
-    }
 }
